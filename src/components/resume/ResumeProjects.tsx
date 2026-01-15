@@ -33,8 +33,7 @@ export default function ResumeProjects({
     <Section
       className={[
         "relative z-10 py-8",
-        // Safe visible defaults. Replace with theme tokens once verified.
-        "bg-white",
+        "bg-background",
         className,
       ].join(" ")}
       {...(enableMotion
@@ -47,21 +46,21 @@ export default function ResumeProjects({
         : {})}
     >
       <div className="mx-auto w-full max-w-3xl px-4">
-        <h2 className="mb-4 text-2xl font-bold text-black">{title}</h2>
+        <h2 className="mb-4 text-2xl font-bold text-foreground">{title}</h2>
         <ul className="space-y-3">
           {projects?.map((p, i) => {
             const content = (
               <>
-                <h3 className="text-lg font-semibold text-black">{p.title}</h3>
+                <h3 className="text-lg font-semibold text-foreground">{p.title}</h3>
                 {p.subtitle ? (
-                  <p className="text-sm text-gray-700">{p.subtitle}</p>
+                  <p className="text-sm text-muted-foreground">{p.subtitle}</p>
                 ) : null}
               </>
             );
             return (
               <Item
                 key={i}
-                className="p-3 border rounded-lg border-gray-200 bg-white"
+                className="p-3 border rounded-lg border-border bg-card"
                 {...(enableMotion
                   ? {
                       initial: { opacity: 0, y: 6 },
@@ -76,7 +75,7 @@ export default function ResumeProjects({
                     href={p.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block focus:outline-none focus:ring-2 focus:ring-emerald-500 rounded"
+                    className="block focus:outline-none focus:ring-2 focus:ring-ring rounded"
                   >
                     {content}
                   </a>

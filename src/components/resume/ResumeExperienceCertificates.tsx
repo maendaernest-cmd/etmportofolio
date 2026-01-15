@@ -32,7 +32,7 @@ export default function ResumeExperienceCertificates({
     <Section
       className={[
         "relative z-10 py-8",
-        "bg-white",
+        "bg-background",
         className,
       ].join(" ")}
       {...(enableMotion
@@ -45,21 +45,21 @@ export default function ResumeExperienceCertificates({
         : {})}
     >
       <div className="mx-auto w-full max-w-3xl px-4">
-        <h2 className="mb-4 text-2xl font-bold text-black">{title}</h2>
+        <h2 className="mb-4 text-2xl font-bold text-foreground">{title}</h2>
         <ul className="space-y-3">
           {entries?.map((e, i) => {
             const content = (
               <>
-                <h3 className="text-lg font-semibold text-black">{e.title}</h3>
+                <h3 className="text-lg font-semibold text-foreground">{e.title}</h3>
                 {e.subtitle ? (
-                  <p className="text-sm text-gray-700">{e.subtitle}</p>
+                  <p className="text-sm text-muted-foreground">{e.subtitle}</p>
                 ) : null}
               </>
             );
             return (
               <Item
                 key={i}
-                className="p-3 border rounded-lg border-gray-200 bg-white"
+                className="p-3 border rounded-lg border-border bg-card"
                 {...(enableMotion
                   ? {
                       initial: { opacity: 0, y: 6 },
@@ -74,7 +74,7 @@ export default function ResumeExperienceCertificates({
                     href={e.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block focus:outline-none focus:ring-2 focus:ring-emerald-500 rounded"
+                    className="block focus:outline-none focus:ring-2 focus:ring-ring rounded"
                   >
                     {content}
                   </a>
